@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "85001060800",
-    "project_id": "pennypal-c7942",
-    "storage_bucket": "pennypal-c7942.firebasestorage.app"
+    "project_number": "1091540318843",
+    "project_id": "pennypal-f8624",
+    "storage_bucket": "pennypal-f8624.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:85001060800:android:77d9c1908bd81ad5e58825",
-        "android_client_info": {
-          "package_name": "com.example.pennypal"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBROiXkw5lX_KoUW_RpCFUl5E8i2olurec"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:85001060800:android:4f989c648dfd52f8e58825",
+        "mobilesdk_app_id": "1:1091540318843:android:9d296663d80833c7cf80de",
         "android_client_info": {
           "package_name": "com.pennypal.pennypal"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBROiXkw5lX_KoUW_RpCFUl5E8i2olurec"
+          "current_key": "AIzaSyApM-dbHGQDqpcxiel5t8T__4hJoeA1YMg"
         }
       ],
       "services": {

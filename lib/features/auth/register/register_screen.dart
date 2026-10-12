@@ -13,7 +13,6 @@ import '../../../core/widgets/app_snackbar.dart';
 import '../../../core/widgets/app_success.dart';
 import '../../../core/widgets/auth_error_banner.dart';
 import '../../../core/widgets/custom_textfield.dart';
-import '../../../core/widgets/google_button.dart';
 import '../../../core/widgets/primary_button.dart';
 import '../../../providers/auth_providers.dart';
 
@@ -64,14 +63,15 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     if (!mounted) return;
 
     if (!ok) {
-      final String message = ref.read(authProvider).error ??
-          'Your account could not be created.';
+      final String message =
+          ref.read(authProvider).error ?? 'Your account could not be created.';
 
       if (message.toLowerCase().contains('already exists')) {
         final bool goToLogin = await AppDialog.confirm(
           context,
           title: 'Account already exists',
-          message: 'An account with that email already exists. Sign in instead?',
+          message:
+              'An account with that email already exists. Sign in instead?',
           confirmLabel: 'Go to Login',
           cancelLabel: 'Try again',
         );
@@ -95,17 +95,6 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
     context.go(AppRoutes.login);
   }
 
-  Future<void> _google() async {
-    FocusScope.of(context).unfocus();
-    final bool ok = await ref.read(authProvider.notifier).signInWithGoogle();
-    if (!mounted) return;
-    if (!ok) {
-      AppSnackbar.error(
-        context,
-        ref.read(authProvider).error ?? 'Google sign-up failed.',
-      );
-    }
-  }
 
   Widget? _strengthMeter(AppPalette palette) {
     final String value = _password.text;
@@ -226,7 +215,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       validator: Validators.password,
                       onChanged: (_) => setState(() {}),
                     ),
-                    if (_strengthMeter(palette) != null) _strengthMeter(palette)!,
+                    if (_strengthMeter(palette) != null)
+                      _strengthMeter(palette)!,
                     const SizedBox(height: AppConstants.spaceMd),
                     AppTextField(
                       label: 'Confirm Password',
@@ -247,26 +237,6 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     ),
                     const SizedBox(height: AppConstants.spaceLg),
                     Row(
-                      children: [
-                        Expanded(child: Divider(color: palette.border)),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                          child: Text(
-                            'or',
-                            style: AppTextStyles.caption
-                                .copyWith(color: palette.textSecondary),
-                          ),
-                        ),
-                        Expanded(child: Divider(color: palette.border)),
-                      ],
-                    ),
-                    const SizedBox(height: AppConstants.spaceLg),
-                    GoogleSignInButton(
-                      label: 'Sign up with Google',
-                      onPressed: auth.loading ? null : _google,
-                    ),
-                    const SizedBox(height: AppConstants.spaceLg),
-                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
@@ -281,7 +251,10 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                       ],
                     ),
                   ],
-                ).animate().fadeIn(duration: AppConstants.durationNormal).slideY(
+                )
+                    .animate()
+                    .fadeIn(duration: AppConstants.durationNormal)
+                    .slideY(
                       begin: 0.05,
                       end: 0,
                       curve: Curves.easeOutCubic,
